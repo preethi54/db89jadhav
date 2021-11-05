@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  - var image_names = ["Bird1.jpg","Bird2.jpg","Bird3.jpg","Bird4.jpg","Bird5.jpg"]
+  - for(let i=0;i<3;i++){
+    - let randomNum = Math.floor(Math.random()*5)
+    img(src=`/images/${image_names[randomNum]}` alt=`Image No ${randomNum}` height="300px" width="300px")
+  -}

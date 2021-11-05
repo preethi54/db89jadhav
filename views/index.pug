@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  P This is Lab 10 Submission 
+  button(type="button", class="btn btn-success" onClick="update()") Press Me
+  br
+  div#target Display 
+  a(href='birds') Birds
+  script.
+    let client_count = 0;
+    function update(){
+      client_count ++;
+      document.getElementById("target").innerHTML = "Value now "+client_count;
+    }
