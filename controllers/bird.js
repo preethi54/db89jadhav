@@ -76,7 +76,7 @@ exports.bird_update_put =async function(req, res) {
 exports.bird_view_all_Page = async function(req, res) {
     try{
         thebirds = await Bird.find();
-        res.render('birds', { title: 'Birds Search Results', results: thebirds });
+        res.render('birds', { title: 'Birds Search Results', item: thebirds });
     }
     catch(err){
         res.status(500);
