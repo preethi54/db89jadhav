@@ -16,8 +16,16 @@ res.send('NOT IMPLEMENTED: bird list');
 
 
 // for a specific BIRD.
-exports.bird_detail = function(req, res) {
-res.send('NOT IMPLEMENTED: bird detail: ' + req.params.id);
+exports.bird_detail = async function(req, res) {
+    console.log("detail"  + req.params.id)
+    try {
+        result = await Bird.findById( req.params.id)
+        res.send(result)
+    } catch (error) {
+        res.status(500)
+        res.send(`{"error": document for id ${req.params.id} not found`);
+    }
+//res.send('NOT IMPLEMENTED: bird detail: ' + req.params.id);
 };
 // Handle BIRD create on POST.
 exports.bird_create_post = async function(req, res) {
@@ -45,8 +53,22 @@ exports.bird_delete = function(req, res) {
 res.send('NOT IMPLEMENTED: bird delete DELETE ' + req.params.id);
 };
 // Handle BIRD update form on PUT.
-exports.bird_update_put = function(req, res) {
-res.send('NOT IMPLEMENTED: bird update PUT' + req.params.id);
+exports.bird_update_put =async function(req, res) {
+    console.log(`update on id ${req.params.id} with body ${JSON.stringify(req.body)}`)
+    try {
+        let toUpdate = await Bird.findById( req.params.id)
+        // Do updates of properties
+        if(req.body.name) toUpdate.name = req.body.name;
+        if(req.body.color) toUpdate.color = req.body.color;
+        if(req.body.size) toUpdate.size = req.body.size;
+        let result = await toUpdate.save();
+        console.log("Sucess " + result)
+        res.send(result)
+    } catch (err) {
+        res.status(500)
+        res.send(`{"error": ${err}: Update for id ${req.params.id} failed`);
+    }
+//res.send('NOT IMPLEMENTED: bird update PUT' + req.params.id);
 };
 
 // VIEWS

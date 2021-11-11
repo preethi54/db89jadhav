@@ -4,7 +4,7 @@ block content
   h1= title
   p Welcome to #{title}
   div(class="container-fluid")
-    - let results=[{name:"Azure Kingfisher",color:"blue",size:"small"},{name:"Andean Cock-of-the-Rock",color:"orange red",size:"medium"},{name:"Northern Cardinal",color:"red",size:"small"}] 
+    - let results=[{name:"Azure Kingfisher",color:"blue",size:"small"},{name:"Andean Cock-of-the-Rock",color:"orange red",size:"medium"},{name:"Northern Cardinal",color:"red",size:"small"},{name:"parrot",color:"green",size:"small"}] 
   div(class="row")
       each form,index in results
           div(class = "col-sm-2 " onclick=`buy(${index})`) #{form.name}
