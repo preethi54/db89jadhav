@@ -31,3 +31,16 @@ res.send('NOT IMPLEMENTED: bird delete DELETE ' + req.params.id);
 exports.bird_update_put = function(req, res) {
 res.send('NOT IMPLEMENTED: bird update PUT' + req.params.id);
 };
+
+// VIEWS
+// Handle a show all view 
+exports.bird_view_all_Page = async function(req, res) {
+    try{
+        thebirds = await Bird.find();
+        res.render('birds', { title: 'Birds Search Results', results: thebirds });
+    }
+    catch(err){
+        res.status(500);
+        res.send(`{"error": ${err}}`);
+    }
+};
