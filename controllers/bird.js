@@ -58,9 +58,12 @@ exports.bird_update_put =async function(req, res) {
     try {
         let toUpdate = await Bird.findById( req.params.id)
         // Do updates of properties
-        if(req.body.name) toUpdate.name = req.body.name;
-        if(req.body.color) toUpdate.color = req.body.color;
-        if(req.body.size) toUpdate.size = req.body.size;
+        if(req.body.name)
+             toUpdate.name = req.body.name;
+        if(req.body.color) 
+            toUpdate.color = req.body.color;
+        if(req.body.size) 
+            toUpdate.size = req.body.size;
         let result = await toUpdate.save();
         console.log("Sucess " + result)
         res.send(result)
