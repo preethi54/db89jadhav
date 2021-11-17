@@ -1,0 +1,53 @@
+extends layout
+
+block content
+  h1= title
+
+  if (toShow == null)
+    h2 No instance to delete
+  else
+    - let birdid = toShow._id
+    - let bird_name = toShow.name
+    - let bird_color = toShow.color
+    - let bird_size = toShow.size
+    - let actionid = "/resource/birds/" + birdid
+    script let actionid = "#{actionid}"
+    div
+        div.row
+            div(class='birdAttr mr-3') Bird ID is:
+            div #{birdid}
+        div.row
+            div(class='birdAttr mr-3') Bird Name is:
+            div #{bird_name}
+        div.row
+            div(class='birdAttr mr-3') Bird Color is:
+            div #{bird_color}
+        div.row
+            div(class='birdAttr mr-3') Bird Size is:
+            div #{bird_size}
+
+    button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete
+    button(class="btn btn-secondary m-2" onclick="cancel()") Cancel
+
+  script.
+    function cancel() {
+      // Go back to the home page for the family collection
+      window.location.href='/birds'
+    }
+  script.
+    function deleteOnid() {
+      console.log("starting delete")
+      // delete first
+      fetch(actionid, {
+        method: 'DELETE'      // Don't need a body for the delete
+      }).then((resp) => {
+        return resp.json(); // or resp.text() or whatever the server sends
+      }).then((body) => {
+        alert("Delete succeded")
+        window.location.href='/birds'
+        // TODO handle body
+      }).catch((error) => {
+        // TODO handle error
+        alert("Delete failed " + error )
+      });
+    }

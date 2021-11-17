@@ -26,3 +26,6 @@ router.get('/create', bird_controller.bird_create_Page);
 
 /* GET create update page */
 router.get('/update', bird_controller.bird_update_Page);
+
+/* GET create costume page */
+router.get('/delete', bird_controller.bird_delete_Page);
