@@ -115,8 +115,40 @@ exports.bird_create_Page = async function (req, res) {
     console.log("single view for id " + req.query.id)
     try {
         result = await Bird.findById(req.query.id)
-        res.render('birddetail',
+        res.render('birdcreate',
             { title: 'Bird Detail', toShow: result });
+    }
+    catch (err) {
+        res.status(500)
+        res.send(`{'error': '${err}'}`);
+    }
+};
+
+// Handle building the view for updating a costume.
+// query provides the id
+exports.bird_update_Page = async function (req, res) {
+    console.log("update view for item " + req.query.id)
+   // console.log("------------->",req.query.id);
+    try {
+        let result = await Bird.findById(req.query.id)
+        console.log("------------->",req.query.id,"----",result);
+        res.render('birdupdate', { title: 'Bird Update', toShow: result });
+    }
+    catch (err) {
+        res.status(500)
+        res.send(`{'error': '${err}'}`);
+    }
+};
+
+// Handle a delete one view with id from query
+exports.bird_delete_Page = async function (req, res) {
+    console.log("Delete view for id " + req.query.id)
+    try {
+        result = await Bird.findById(req.query.id)
+        res.render('birddelete', {
+            title: 'Birds Delete', toShow:
+                result
+        });
     }
     catch (err) {
         res.status(500)

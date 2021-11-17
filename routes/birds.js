@@ -23,4 +23,10 @@ router.get('/detail', birds_controlers.bird_view_one_Page);
 /* GET create Birds page */
 router.get('/create', birds_controlers.bird_create_Page);
 
+/* GET Bird update page */
+router.get('/update', birds_controlers.bird_update_Page);
+
+/* GET create costume page */
+router.get('/delete', birds_controlers.bird_delete_Page);
+
 module.exports = router;
