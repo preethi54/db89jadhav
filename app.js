@@ -15,6 +15,7 @@ var addmodsRouter = require('./routes/addmods')
 var selectorRouter = require('./routes/selector')
 var Bird = require("./models/bird");
 var resourceRouter = require('./routes/resource');
+//var birddetail = require('./routes/selector')
 
 
 // We can seed the collection if needed on server start 

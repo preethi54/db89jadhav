@@ -1,0 +1,21 @@
+
+extends layout
+block content
+ h1= title
+    - let birdid = toShow._id
+    - let bird_name = toShow.name
+    - let bird_color = toShow.color
+    - let bird_size = toShow.size
+ div
+    div.row
+        div(class='birdAttr mr-3') Bird ID is:
+        div #{birdid}
+    div.row
+        div(class='birdAttr mr-3') Bird Name is:
+        div #{bird_name}
+    div.row
+        div(class='birdAttr mr-3') Bird Color is:
+        div #{bird_color}
+    div.row
+        div(class='birdAttr mr-3') Bird Size is:
+        div #{bird_size}

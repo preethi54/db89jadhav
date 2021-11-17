@@ -14,4 +14,13 @@ router.get('/birds/:id', birds_controlers.bird_detail);
 // PUT request to update birds.
 router.put('/birds/:id', birds_controlers.bird_update_put);
 
+// DELETE request to delete birds.
+router.delete('/birds/:id', birds_controlers.bird_delete);
+
+/* GET detail costume page */
+router.get('/detail', birds_controlers.bird_view_one_Page);
+
+/* GET create Birds page */
+router.get('/create', birds_controlers.bird_create_Page);
+
 module.exports = router;

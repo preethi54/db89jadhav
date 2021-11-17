@@ -6,3 +6,8 @@ body {
 a {
   color: #00B7FF;
 }
+
+.birdAttr {
+  background-color: rgb(166, 166, 211);
+  width: 120px;
+  }

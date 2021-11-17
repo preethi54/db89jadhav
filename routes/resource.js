@@ -18,4 +18,8 @@ router.get('/birds/:id', bird_controller.bird_detail);
 // GET request for list of all Costume items.
 router.get('/birds', bird_controller.bird_list);
 module.exports = router;
-//
+///* GET detail Birds page */
+router.get('/detail', bird_controller.bird_view_one_Page);
+
+/* GET create Birds page */
+router.get('/create', bird_controller.bird_create_Page);
