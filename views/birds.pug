@@ -6,13 +6,18 @@ block content
   div(class="container-fluid")
     - let results = thebirds
     //- - let results=[{name:"Azure Kingfisher",color:"blue",size:"small"},{name:"Andean Cock-of-the-Rock",color:"orange red",size:"medium"},{name:"Northern Cardinal",color:"red",size:"small"},{name:"parrot",color:"green",size:"small"}] 
-  div(class="row")
+  div(class="row m-1")
       each form,index in results
+        - let destination = `dispatch(\"/birds/update?id=${form._id}\")`
           div(class = "col-sm-2 " onclick=`buy(${index})`) #{form.name}
           div(class = "col-sm-2 " onclick=`buy(${index})`) #{form.color}
           div(class = "col-sm-2 " onclick=`buy(${index})`) #{form.size}
+          button.btn( class="btn-primary ml-1", onclick= destination) Update
   script.
     function buy(itemNo)
     {
       alert(`You purchased Item ${itemNo+1}`)
     }
+    function dispatch(path){
+      window.location.href=path
+    } 
