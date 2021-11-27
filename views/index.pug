@@ -8,6 +8,17 @@ block content
   br
   div#target Display 
   a(href='birds') Birds
+  br
+  if (!user)
+    a(href="/login") Login
+    br
+    a(href="/register") Register
+  if (user)
+    p You are currently logged in as #{user.username}
+    a(href="/birds") Take me to Birds
+    br
+    a(href="/logout") Logout
+
   script.
     let client_count = 0;
     function update(){
