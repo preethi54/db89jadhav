@@ -6,13 +6,13 @@ block content
  form(id='BirdForm', action="/resource/birds", method="POST")
     div.form-group
         label.birdAttr(for='name') bird name
-        input#name(type='text', name='name')
+        input#name(type='text', name='name' minlength=5)
     div.form-group
         label.birdAttr(for='color') Bird Color 
-        input#color(type='text', name='color')
+        input#color(type='text', name='color' minlength=4)
     div.form-group
         label.birdAttr(for='size') Bird Size
-        input#size(type='text', name='size')
+        input#size(type='text', name='size' minlength=4)
     input(type="submit")
 
  script.
