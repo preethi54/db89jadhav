@@ -39,7 +39,7 @@ async function recreateDB(){
 // Delete everything 
 await Bird.deleteMany();
 
-let instance1 = new Bird({name:"Azure Kingfisher",color:"blue",size:"small"});
+let instance1 = new Bird({name:"Azure Kingfisher",color:"bluish",size:"small"});
 instance1.save( function(err,doc) {
     if(err) {
       return console.error(err)
@@ -47,7 +47,7 @@ instance1.save( function(err,doc) {
   console.log("First object saved")
 });
 
-let instance2 = new Bird({name:"Andean Cock-of-the-Rock",color:"orange red",size:"medium"});
+let instance2 = new Bird({name:"Andean Cock-of-the-Rock",color:"orange-red",size:"medium"});
 instance2.save( function(err,doc) {
     if(err) {
       return console.error(err)
@@ -55,7 +55,7 @@ instance2.save( function(err,doc) {
   console.log("Second object saved")
 });
 
-let instance3 = new Bird({name:"Northern Cardinal",color:"red",size:"small"});
+let instance3 = new Bird({name:"Northern Cardinal",color:"reddish",size:"small"});
 instance3.save( function(err,doc) {
     if(err) {
       return console.error(err)

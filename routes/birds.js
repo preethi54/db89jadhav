@@ -29,4 +29,23 @@ router.get('/update', birds_controlers.bird_update_Page);
 /* GET create costume page */
 router.get('/delete', birds_controlers.bird_delete_Page);
 
+// A little function to check if we have an authorized user and continue on
+//or
+// redirect to login.
+const secured = (req, res, next) => {
+    if (req.user) {
+        return next();
+    }
+    req.session.returnTo = req.originalUrl;
+    res.redirect("/login");
+}
+/* GET update costume page */
+router.get('/update', secured,birds_controlers.bird_update_Page);
+
+/* GET create Birds page */
+router.get('/create', secured,birds_controlers.bird_create_Page);
+
+/* GET create costume page */
+router.get('/delete', secured,birds_controlers.bird_delete_Page);
+
 module.exports = router;
