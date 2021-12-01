@@ -15,10 +15,10 @@ block content
     form(id='BirdForm', action=actionid, method="PUT")
         div.form-group
             label.birdAttr(for='name') bird name
-            input#name(type='text', name='name',value=bird_name)
+            input#name(type='text', name='name',value=bird_name )
         div.form-group
             label.birdAttr(for='color') Bird Color 
-            input#color(type='text', name='color',value=bird_color)
+            input#color(type='text', name='color',value=bird_color minlength=4)
         div.form-group
             label.birdAttr(for='size') Bird Size
             input#size(type='text', name='size',value=bird_size)
